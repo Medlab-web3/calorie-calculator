@@ -1,0 +1,337 @@
+:root {
+    --primary-color: #4DCFB8;
+    --secondary-color: #FF9966;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --card-background: #fff;
+    --border-radius: 8px;
+    --spacing: 20px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: var(--spacing);
+}
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing);
+}
+
+header {
+    text-align: center;
+    margin-bottom: var(--spacing);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.input-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input, select {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.height-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.input-with-unit {
+    position: relative;
+    flex: 1;
+}
+
+.input-with-unit input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.unit {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+}
+
+.toggle-section {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+
+.toggle-group {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.slider .option {
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 75px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: var(--transition);
+    border-radius: 34px;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(77px);
+}
+
+.bmr-section {
+    margin-bottom: var(--spacing);
+    padding: var(--spacing);
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+}
+
+.bmr-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.formula-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.radio-option, .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.results-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+
+.result-card {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.result-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.result-card p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.newsletter-section {
+    text-align: center;
+    padding: var(--spacing);
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+}
+
+.newsletter-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.newsletter-section p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.subscribe-form input {
+    flex: 1;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.subscribe-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Error Styles */
+.error-container {
+    background-color: #fff3f3;
+    border: 1px solid #ffcdd2;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing);
+    padding: 15px;
+    display: none;
+}
+
+.error-content {
+    color: #d32f2f;
+}
+
+.error-content h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.error-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.error-content li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.error-content li:before {
+    content: "•";
+    position: absolute;
+    left: 5px;
+}
+
+input.error {
+    border-color: #d32f2f;
+    background-color: #fff3f3;
+}
+
+input.error:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+}
+
+@media (max-width: 600px) {
+    .input-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .toggle-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+    }
+    
+    .result-card {
+        min-width: 100%;
+    }
+}

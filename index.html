@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <header>
+            <h1>Calorie Calculator</h1>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <!-- Height Input -->
+                <div class="input-group">
+                    <label>HEIGHT</label>
+                    <!-- Metric height input -->
+                    <div class="height-metric" style="display: none;">
+                        <div class="input-with-unit">
+                            <input type="number" id="height-cm" placeholder="cm">
+                            <span class="unit">cm</span>
+                        </div>
+                    </div>
+                    <!-- Imperial height input -->
+                    <div class="height-imperial">
+                        <div class="height-inputs">
+                            <div class="input-with-unit">
+                                <input type="number" id="height-ft" placeholder="ft">
+                                <span class="unit">ft</span>
+                            </div>
+                            <div class="input-with-unit">
+                                <input type="number" id="height-in" placeholder="in">
+                                <span class="unit">in</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Age Input -->
+                <div class="input-group">
+                    <label>AGE</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="age" placeholder="yrs">
+                        <span class="unit">yrs</span>
+                    </div>
+                </div>
+
+                <!-- Weight Input -->
+                <div class="input-group">
+                    <label>WEIGHT</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="weight" placeholder="lbs">
+                        <span class="unit">lbs</span>
+                    </div>
+                </div>
+
+                <!-- Activity Level -->
+                <div class="input-group">
+                    <label>ACTIVITY</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary</option>
+                        <option value="1.375">Light Activity</option>
+                        <option value="1.55">Moderate Activity</option>
+                        <option value="1.725">Very Active</option>
+                        <option value="1.9">Extra Active</option>
+                    </select>
+                </div>
+
+                <!-- Workouts per Week -->
+                <div class="input-group">
+                    <label>WORKOUTS PER WK.</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="workouts" placeholder="days">
+                        <span class="unit">days</span>
+                    </div>
+                </div>
+
+                <!-- Goal Selection -->
+                <div class="input-group">
+                    <label>GOAL</label>
+                    <select id="goal">
+                        <option value="maintain">Maintain Weight</option>
+                        <option value="lose">Lose Weight</option>
+                        <option value="gain">Gain Weight</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Toggle Switches -->
+            <div class="toggle-section">
+                <!-- Gender Toggle -->
+                <div class="toggle-group">
+                    <label class="switch">
+                        <input type="checkbox" id="gender-toggle" checked>
+                        <span class="slider">
+                            <span class="option">FEMALE</span>
+                            <span class="option">MALE</span>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Unit System Toggle -->
+                <div class="toggle-group">
+                    <label class="switch">
+                        <input type="checkbox" id="unit-toggle">
+                        <span class="slider">
+                            <span class="option">IMPERIAL</span>
+                            <span class="option">METRIC</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- BMR Formula Selection -->
+            <div class="bmr-section">
+                <h2>BASAL METABOLIC RATE</h2>
+                <div class="formula-options">
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="mifflin" checked>
+                        <span>MIFFLIN-ST JEOR FORMULA</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="harris">
+                        <span>HARRIS-BENEDICT FORMULA</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="katch">
+                        <span>KATCH-MCCARDLE FORMULA</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="cunningham">
+                        <span>CUNNINGHAM FORMULA</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="who">
+                        <span>WHO FORMULA</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="formula" value="average">
+                        <span>AVERAGE</span>
+                    </label>
+                </div>
+                <label class="checkbox-option">
+                    <input type="checkbox" id="body-fat-toggle">
+                    <span>I KNOW MY BODY FAT %</span>
+                </label>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" style="display: none;">
+                <div class="result-card">
+                    <h3>CALORIES</h3>
+                    <p id="calories-result">0 kcal</p>
+                </div>
+                <div class="result-card">
+                    <h3>BMR</h3>
+                    <p id="bmr-result">0 kcal</p>
+                </div>
+                <div class="result-card">
+                    <h3>TDEE</h3>
+                    <p id="tdee-result">0 kcal</p>
+                </div>
+                <div class="result-card">
+                    <h3>PROTEIN</h3>
+                    <p id="protein-result">0 g</p>
+                </div>
+                <div class="result-card">
+                    <h3>FAT</h3>
+                    <p id="fat-result">0 g</p>
+                </div>
+                <div class="result-card">
+                    <h3>CARBS</h3>
+                    <p id="carbs-result">0 g</p>
+                </div>
+                <div class="result-card">
+                    <h3>BMI</h3>
+                    <p id="bmi-result">0</p>
+                </div>
+                <div class="result-card">
+                    <h3>FIBER</h3>
+                    <p id="fiber-result">0 g</p>
+                </div>
+                <div class="result-card">
+                    <h3>WATER</h3>
+                    <p id="water-result">0 L</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <h2>SUBSCRIBE FOR RESULTS</h2>
+            <p>Subscribe to receive more news and discounts</p>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
